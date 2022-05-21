@@ -338,6 +338,260 @@
       "PerpetualProtocolReferrer": {
         "src": "contracts/PerpetualProtocolReferrer.sol:7",
         "version": {
+          "withMetadata": "fd1632925e3fda0c66936c14332ea023dbc461f20eb40ab435c0ab96171f5098",
+          "withoutMetadata": "64d163373bb02f8e9f2e1f61f631d49f2e397c031cecc01519ddb7f0d5083019",
+          "linkedWithoutMetadata": "64d163373bb02f8e9f2e1f61f631d49f2e397c031cecc01519ddb7f0d5083019"
+        },
+        "inherit": [
+          "SafeOwnable",
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "init()",
+          "createReferralCode(string)",
+          "getReferralCodeByPartnerAddress(address)",
+          "getMyRefereeCode()",
+          "setReferralCode(string)",
+          "_importPartner(address,string,address[])",
+          "_upsertUncappedPartner(address,string)",
+          "_removeUncappedPartner(address)",
+          "_batchUpdateUncappedPartner(address[],string[])"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "PerpetualProtocolReferrer",
+              "label": "partners",
+              "type": "t_mapping(t_address,t_struct(Partner)372_storage)",
+              "src": "contracts/PerpetualProtocolReferrer.sol:45"
+            },
+            {
+              "contract": "PerpetualProtocolReferrer",
+              "label": "traders",
+              "type": "t_mapping(t_address,t_struct(Trader)379_storage)",
+              "src": "contracts/PerpetualProtocolReferrer.sol:46"
+            },
+            {
+              "contract": "PerpetualProtocolReferrer",
+              "label": "referralCodeToPartnerMap",
+              "type": "t_mapping(t_string_memory_ptr,t_address)",
+              "src": "contracts/PerpetualProtocolReferrer.sol:47"
+            },
+            {
+              "contract": "PerpetualProtocolReferrer",
+              "label": "uncappedPartners",
+              "type": "t_mapping(t_address,t_string_storage)",
+              "src": "contracts/PerpetualProtocolReferrer.sol:48"
+            },
+            {
+              "contract": "PerpetualProtocolReferrer",
+              "label": "isInitialised",
+              "type": "t_bool",
+              "src": "contracts/PerpetualProtocolReferrer.sol:50"
+            }
+          ],
+          "types": {
+            "t_mapping(t_address,t_struct(Partner)372_storage)": {
+              "label": "mapping(address => struct PerpetualProtocolReferrer.Partner)"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_struct(Partner)372_storage": {
+              "label": "struct PerpetualProtocolReferrer.Partner",
+              "members": [
+                {
+                  "label": "createdAt",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "referralCode",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "createdBy",
+                  "type": "t_address"
+                }
+              ]
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_string_storage": {
+              "label": "string"
+            },
+            "t_mapping(t_address,t_struct(Trader)379_storage)": {
+              "label": "mapping(address => struct PerpetualProtocolReferrer.Trader)"
+            },
+            "t_struct(Trader)379_storage": {
+              "label": "struct PerpetualProtocolReferrer.Trader",
+              "members": [
+                {
+                  "label": "referralCode",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "createdAt",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "updatedAt",
+                  "type": "t_uint256"
+                }
+              ]
+            },
+            "t_mapping(t_string_memory_ptr,t_address)": {
+              "label": "mapping(string => address)"
+            },
+            "t_mapping(t_address,t_string_storage)": {
+              "label": "mapping(address => string)"
+            },
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "SafeOwnable": {
+        "src": "contracts/SafeOwnable.sol:6",
+        "inherit": [
+          "ContextUpgradeable",
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [
+          "renounceOwnership()",
+          "setOwner(address)",
+          "updateOwner()",
+          "owner()",
+          "candidate()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "SafeOwnable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "contracts/SafeOwnable.sol:7"
+            },
+            {
+              "contract": "SafeOwnable",
+              "label": "_candidate",
+              "type": "t_address",
+              "src": "contracts/SafeOwnable.sol:8"
+            },
+            {
+              "contract": "SafeOwnable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "contracts/SafeOwnable.sol:11"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address"
+            },
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      }
+    },
+    {
+      "Initializable": {
+        "src": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:20",
+        "inherit": [],
+        "libraries": [
+          "AddressUpgradeable"
+        ],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
+            }
+          ],
+          "types": {
+            "t_bool": {
+              "label": "bool"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "AddressUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol:8",
+        "version": {
+          "withMetadata": "c2c6d7e9d37beb9e37a0d523c9c3568aae97aa46ab811f7e83d82d6eb896e7ce",
+          "withoutMetadata": "aaa148c474cd10e1a6cd0a52c0b55f1aa9b7bb7b42d7f1cb5acaea4f42f04bc8",
+          "linkedWithoutMetadata": "aaa148c474cd10e1a6cd0a52c0b55f1aa9b7bb7b42d7f1cb5acaea4f42f04bc8"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1"
+        }
+      },
+      "ContextUpgradeable": {
+        "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:16",
+        "inherit": [
+          "Initializable"
+        ],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "ContextUpgradeable",
+              "label": "__gap",
+              "type": "t_array(t_uint256)50_storage",
+              "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+            }
+          ],
+          "types": {
+            "t_array(t_uint256)50_storage": {
+              "label": "uint256[50]"
+            },
+            "t_uint256": {
+              "label": "uint256"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "PerpetualProtocolReferrer": {
+        "src": "contracts/PerpetualProtocolReferrer.sol:7",
+        "version": {
           "withMetadata": "0525bd0e09b841683b6d8595f157415a2df47a31b7008d20e4e30e06aa34afd1",
           "withoutMetadata": "e3f0646f193117da5220769280cbd6858fa895ea907d9fa8fea3f1e081ab6682",
           "linkedWithoutMetadata": "e3f0646f193117da5220769280cbd6858fa895ea907d9fa8fea3f1e081ab6682"
